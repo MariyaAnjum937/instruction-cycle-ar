@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>3D Cube Test</title>
+  <title>3D CPU Model</title>
 
   <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
@@ -15,21 +15,88 @@
 </head>
 
 <body>
-  <a-scene>
-    <!-- Camera -->
-    <a-entity camera position="0 1.6 4"></a-entity>
+  <a-scene background="color: #ECECEC">
 
-    <!-- 3D Cube -->
+    <!-- Camera + controls -->
+    <a-entity camera look-controls wasd-controls position="0 2 6"></a-entity>
+
+    <!-- CPU BASE -->
     <a-box
-      position="0 1 -3"
-      rotation="0 45 0"
-      color="#4CC3D9"
-      animation="property: rotation; to: 0 405 0; loop: true; dur: 5000">
+      position="0 0 0"
+      width="4"
+      height="0.6"
+      depth="4"
+      color="#555">
     </a-box>
 
-    <!-- Light -->
+    <!-- CPU TOP (LID) -->
+    <a-box
+      position="0 0.8 0"
+      width="4"
+      height="0.4"
+      depth="4"
+      color="#777"
+      animation="property: position; to: 0 2 0; dur: 2000; easing: easeOutQuad">
+    </a-box>
+
+    <!-- CONTROL UNIT -->
+    <a-box
+      position="-1 0.5 -1"
+      width="1.2"
+      height="0.6"
+      depth="1.2"
+      color="#ff6f61"
+      animation="property: position; to: -1 1.2 -1; dur: 2000; delay: 500">
+    </a-box>
+
+    <a-text
+      value="Control Unit"
+      position="-1 1.9 -1"
+      align="center"
+      color="black"
+      scale="0.7 0.7 0.7">
+    </a-text>
+
+    <!-- ALU -->
+    <a-box
+      position="1 0.5 -1"
+      width="1.2"
+      height="0.6"
+      depth="1.2"
+      color="#4fc3f7"
+      animation="property: position; to: 1 1.2 -1; dur: 2000; delay: 700">
+    </a-box>
+
+    <a-text
+      value="ALU"
+      position="1 1.9 -1"
+      align="center"
+      color="black"
+      scale="0.7 0.7 0.7">
+    </a-text>
+
+    <!-- REGISTERS -->
+    <a-box
+      position="0 0.5 1"
+      width="1.6"
+      height="0.6"
+      depth="1.2"
+      color="#81c784"
+      animation="property: position; to: 0 1.2 1; dur: 2000; delay: 900">
+    </a-box>
+
+    <a-text
+      value="Registers"
+      position="0 1.9 1"
+      align="center"
+      color="black"
+      scale="0.7 0.7 0.7">
+    </a-text>
+
+    <!-- Lights -->
     <a-light type="ambient" color="#ffffff"></a-light>
-    <a-light type="directional" position="1 2 1"></a-light>
+    <a-light type="directional" position="1 3 2"></a-light>
+
   </a-scene>
 </body>
 </html>
